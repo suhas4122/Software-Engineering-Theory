@@ -1,0 +1,277 @@
+*** Positive Booking no.1 ***
+
+BOOKING SUCCEEDED
+PNR Number = 1
+From Station = Delhi
+To Station = Mumbai
+Travel Date = Thu, 15/Apr/2021
+Travel Class = AC 3 Tier
+  : Mode: Sleeping
+  : Comfort: AC
+  : Bunks: 3
+  : Luxury: No
+Booking Category = General
+Passenger Information = 
+Name: Daaku Mangal Singh
+Date Of Birth: Mon, 11/Mar/2002
+Gender: Male
+Aadhaar: 100011111111
+
+Reservation Date = Fri, 9/Apr/2021
+Fare = 1849
+
+*** Positive Booking no.2 ***
+
+BOOKING SUCCEEDED
+PNR Number = 2
+From Station = Delhi
+To Station = Mumbai
+Travel Date = Thu, 15/Apr/2021
+Travel Class = Executive Chair Car
+  : Mode: Sitting
+  : Comfort: AC
+  : Bunks: 0
+  : Luxury: Yes
+Booking Category = Ladies
+Passenger Information = 
+Name: Daaki Mangali Singh
+Date Of Birth: Sat, 11/Jul/1992
+Gender: Female
+Aadhaar: 100011111111
+
+Reservation Date = Fri, 9/Apr/2021
+Fare = 3678
+
+*** Positive Booking no.3 ***
+
+BOOKING SUCCEEDED
+PNR Number = 3
+From Station = Delhi
+To Station = Mumbai
+Travel Date = Thu, 15/Apr/2021
+Travel Class = AC 2 Tier
+  : Mode: Sleeping
+  : Comfort: AC
+  : Bunks: 2
+  : Luxury: No
+Booking Category = Senior Citizen
+Passenger Information = 
+Name: Daaku Mangal Singh
+Date Of Birth: Sat, 11/Mar/1950
+Gender: Male
+Aadhaar: 100011111111
+
+Reservation Date = Fri, 9/Apr/2021
+Fare = 1786
+
+*** Positive Booking no.4 ***
+
+BOOKING SUCCEEDED
+PNR Number = 4
+From Station = Mumbai
+To Station = Bangalore
+Travel Date = Tue, 15/Feb/2022
+Travel Class = First Class
+  : Mode: Sleeping
+  : Comfort: Non-AC
+  : Bunks: 2
+  : Luxury: Yes
+Booking Category = Senior Citizen
+Passenger Information = 
+Name: Daaki Mangali Singh
+Date Of Birth: Sat, 11/Mar/1961
+Gender: Female
+Aadhaar: 100011111111
+
+Reservation Date = Fri, 9/Apr/2021
+Fare = 786
+
+*** Positive Booking no.5 ***
+
+BOOKING SUCCEEDED
+PNR Number = 5
+From Station = Delhi
+To Station = Mumbai
+Travel Date = Sat, 10/Apr/2021
+Travel Class = Executive Chair Car
+  : Mode: Sitting
+  : Comfort: AC
+  : Bunks: 0
+  : Luxury: Yes
+Booking Category = Tatkal
+Passenger Information = 
+Name: Daaku Mangal Singh
+Date Of Birth: Mon, 11/Mar/2002
+Gender: Male
+Aadhaar: 100011111111
+
+Reservation Date = Fri, 9/Apr/2021
+Fare = 4178
+
+*** Positive Booking no.6 ***
+
+BOOKING SUCCEEDED
+PNR Number = 6
+From Station = Delhi
+To Station = Mumbai
+Travel Date = Sat, 10/Apr/2021
+Travel Class = Executive Chair Car
+  : Mode: Sitting
+  : Comfort: AC
+  : Bunks: 0
+  : Luxury: Yes
+Booking Category = Premium Tatkal
+Passenger Information = 
+Name: Daaku Mangal Singh
+Date Of Birth: Mon, 11/Mar/2002
+Gender: Male
+Aadhaar: 100011111111
+
+Reservation Date = Fri, 9/Apr/2021
+Fare = 4678
+
+*** Positive Booking no.7 ***
+
+BOOKING SUCCEEDED
+PNR Number = 7
+From Station = Delhi
+To Station = Mumbai
+Travel Date = Sat, 10/Apr/2021
+Travel Class = Executive Chair Car
+  : Mode: Sitting
+  : Comfort: AC
+  : Bunks: 0
+  : Luxury: Yes
+Booking Category = Tatkal
+Passenger Information = 
+Name: Daaku Mangal Singh
+Date Of Birth: Mon, 11/Mar/2002
+Gender: Male
+Aadhaar: 100011111111
+Disability Type: Blind
+Disability ID: 0221
+
+Reservation Date = Fri, 9/Apr/2021
+Fare = 4178
+
+*** Positive Booking no.8 ***
+
+BOOKING SUCCEEDED
+PNR Number = 8
+From Station = Delhi
+To Station = Mumbai
+Travel Date = Sat, 10/Apr/2021
+Travel Class = Executive Chair Car
+  : Mode: Sitting
+  : Comfort: AC
+  : Bunks: 0
+  : Luxury: Yes
+Booking Category = Premium Tatkal
+Passenger Information = 
+Name: Daaku Mangal Singh
+Date Of Birth: Mon, 11/Mar/2002
+Gender: Male
+Aadhaar: 100011111111
+Disability Type: Blind
+Disability ID: 0221
+
+Reservation Date = Fri, 9/Apr/2021
+Fare = 4678
+
+*** Positive Booking no.9 ***
+
+BOOKING SUCCEEDED
+PNR Number = 9
+From Station = Delhi
+To Station = Mumbai
+Travel Date = Thu, 15/Apr/2021
+Travel Class = AC 3 Tier
+  : Mode: Sleeping
+  : Comfort: AC
+  : Bunks: 3
+  : Luxury: No
+Booking Category = Divyaang - Blind
+Passenger Information = 
+Name: Daaku Mangal Singh
+Date Of Birth: Mon, 11/Mar/2002
+Gender: Male
+Aadhaar: 100011111111
+Disability Type: Blind
+Disability ID: 0221
+
+Reservation Date = Fri, 9/Apr/2021
+Fare = 492
+
+*** Positive Booking no.10 ***
+
+BOOKING SUCCEEDED
+PNR Number = 10
+From Station = Delhi
+To Station = Mumbai
+Travel Date = Thu, 15/Apr/2021
+Travel Class = AC 3 Tier
+  : Mode: Sleeping
+  : Comfort: AC
+  : Bunks: 3
+  : Luxury: No
+Booking Category = Divyaang - Orthopaedically Handicapped
+Passenger Information = 
+Name: Daaku Mangal Singh
+Date Of Birth: Mon, 11/Mar/2002
+Gender: Male
+Aadhaar: 100011111111
+Disability Type: Orthopaedically Handicapped
+Disability ID: 0221
+
+Reservation Date = Fri, 9/Apr/2021
+Fare = 492
+
+*** Positive Booking no.11 ***
+
+BOOKING SUCCEEDED
+PNR Number = 11
+From Station = Delhi
+To Station = Mumbai
+Travel Date = Thu, 15/Apr/2021
+Travel Class = AC 3 Tier
+  : Mode: Sleeping
+  : Comfort: AC
+  : Bunks: 3
+  : Luxury: No
+Booking Category = Divyaang - Cancer
+Passenger Information = 
+Name: Daaku Mangal Singh
+Date Of Birth: Mon, 11/Mar/2002
+Gender: Male
+Aadhaar: 100011111111
+Disability Type: Cancer
+Disability ID: 0221
+
+Reservation Date = Fri, 9/Apr/2021
+Fare = 40
+
+*** Positive Booking no.12 ***
+
+BOOKING SUCCEEDED
+PNR Number = 12
+From Station = Delhi
+To Station = Mumbai
+Travel Date = Thu, 15/Apr/2021
+Travel Class = AC 3 Tier
+  : Mode: Sleeping
+  : Comfort: AC
+  : Bunks: 3
+  : Luxury: No
+Booking Category = Divyaang - TB
+Passenger Information = 
+Name: Daaku Mangal Singh
+Date Of Birth: Mon, 11/Mar/2002
+Gender: Male
+Aadhaar: 100011111111
+Disability Type: TB
+Disability ID: 0221
+
+Reservation Date = Fri, 9/Apr/2021
+Fare = 1849
+
+

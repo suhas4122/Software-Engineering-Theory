@@ -1,0 +1,421 @@
+CS20006 Assignment 3
+Testplan.txt
+Suhas Jain (19CS30048)
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ UNIT TESTING ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+A. Unit Test Plan for 'Date'
+
+A.1. Testing the provided constructor : Date(int d = 1, int m = 1, int y = 2021)
+    - Date object is created in following scenarios
+        - All arguments are provided
+        - All arguments except y are provided
+        - All arguments except m and y are provided
+        - No argument is provided
+
+A.2. Testing the copy constructor : Date(const Date&)
+    - Copy constructor is called in following cases:
+        - A new Date object is created by passing an existing Date object as argument
+        - A new Date object is created by assigning it to an existing Date object
+
+A.3. Testing the day() function : Day day() const
+    - Gives the day of week of a Date object
+    - Tested if day given is correct
+    - Tested for 29 February
+
+A.4. Testing the overloaded relational operator == : inline bool operator==(const Date& d)
+    - Checks if all members of Date objects in both sides of the operator are equal
+    - Tested for case when all three members are equal
+    - Tested for case when only two members are equal
+    - Tested for case when only one member is equal
+    - Tested for case when no members are equal
+
+A.5. Testing the overloaded output stream operator << : friend ostream &operator<<(ostream&, const Date&)
+    - Prints a Date object to the screen
+    - Tested if printed output is same as in Golden output log file
+
++++ GOLDEN OUTPUTS
+
+A.1.
+    - d.date_ = 7, d.month_ = Mar, d.year_ = 2021
+    - d3.date_ = 1, d3.month_ = Jan, d3.year_ = 2021
+    - d4.date_ = 5, d4.month_ = Jan, d4.year_ = 2021
+    - d5.date_ = 5, d.month_ = Jun, d.year_ = 2021
+
+A.2.
+    - d1.date_ = 7, d1.month_ = Mar, d1.year_ = 2021
+    - d2.date_ = 7, d2.month_ = Mar, d2.year_ = 2021
+
+A.3.
+    - d.day() = 1
+    - d1.day() = 1
+    - d2.day() = 1
+    - d3.day() = 6
+    - d4.day() = 3
+    - d5.day() = 0
+
+A.4.
+    - (d==d1) = true
+    - (d1==d2) = true
+    - (d==d6) = false
+    - (d==d7) = false
+    - (d==d8) = false
+    - (d6==d7) = false
+    - (d6==d8) = false
+    - (d7==d8) = false
+    - (d==d9) = false
+
+A.5.
+    Sun, 7/Mar/2021
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+B. Unit Test Plan for 'Railways'
+
+B.1. Testing the Type() function : const static Railways &Type()
+    - The Type() function is called to get an object of Railways class
+    - The Type() function is called again and check if it is the same as previous object
+      (testing for singleton class)
+
+B.2. Testing the GetDistance() function : static int GetDistance(const Station &, const Station &)
+    - Gives the distance between two stations
+    - Tested for all possible pair of distinct stations
+
+B.3. Testing the overloaded output stream operator << : friend ostream &operator<<(ostream&, const Railways &)
+    - Prints a Railways object to the screen
+    - Tested if printed output is same as in Golden output log file
+
++++ GOLDEN OUTPUTS
+
+B.1.
+    - (&i==&Railways::Type()) = true
+
+B.2.
+    - GetDistance(Station("Mumbai"), Station("Delhi")) = 1447
+    - GetDistance(Station("Mumbai"), Station("Kolkata")) = 2014
+    - GetDistance(Station("Mumbai"), Station("Bangalore")) = 981
+    - GetDistance(Station("Mumbai"), Station("Chennai")) = 1338
+    - GetDistance(Station("Delhi"), Station("Kolkata")) = 1472
+    - GetDistance(Station("Delhi"), Station("Bangalore")) = 2150
+    - GetDistance(Station("Delhi"), Station("Chennai")) = 2180
+    - GetDistance(Station("Kolkata"), Station("Bangalore")) = 1871
+    - GetDistance(Station("Kolkata"), Station("Chennai")) = 1659
+    - GetDistance(Station("Bangalore"), Station("Chennai")) = 350
+
+B.3.
+    Indian Railways
+
+    List of Stations
+    Station : Mumbai
+    Station : Delhi
+    Station : Bangalore
+    Station : Kolkata
+    Station : Chennai
+
+    Pairwise Distances
+    Bangalore - Chennai = 350 km
+    Bangalore - Delhi = 2150 km
+    Bangalore - Kolkata = 1871 km
+    Bangalore - Mumbai = 981 km
+    Chennai - Bangalore = 350 km
+    Chennai - Delhi = 2180 km
+    Chennai - Kolkata = 1659 km
+    Chennai - Mumbai = 1338 km
+    Delhi - Bangalore = 2150 km
+    Delhi - Chennai = 2180 km
+    Delhi - Kolkata = 1472 km
+    Delhi - Mumbai = 1447 km
+    Kolkata - Bangalore = 1871 km
+    Kolkata - Chennai = 1659 km
+    Kolkata - Delhi = 1472 km
+    Kolkata - Mumbai = 2014 km
+    Mumbai - Bangalore = 981 km
+    Mumbai - Chennai = 1338 km
+    Mumbai - Delhi = 1447 km
+    Mumbai - Kolkata = 2014 km
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+C. Unit Test Plan for 'Station'
+
+C.1. Testing the provided constructor : Station(const string &)
+    - Station object is created by passing a string as argument
+
+C.2. Testing the copy constructor : Station(const Station &)
+    - Copy constructor is called in following cases:
+        - A new Station object is created by passing an existing Station object as argument
+        - A new Station object is created by assigning it to an existing Station object
+
+C.3. Testing the GetName() function : string GetName() const
+    - Gives name of the Station object
+    - Tested if name given is correct
+
+C.4. Testing the GetDistance() function : int GetDistance(const Station &) const
+    - Gives distance to a Station using a Station object
+    - Tested if distance given is correct
+
+C.5. Testing the overloaded output stream operator << : friend ostream &operator<<(ostream&, const Station &)
+    - Prints a Station object to the screen
+    - Tested if printed output is same as in Golden output log file
+
++++ GOLDEN OUTPUTS
+
+C.1.
+    - s1.name_ = "Mumbai"
+
+C.2.
+    - s2.name_ = "Mumbai"
+    - s3.name_ = "Chennai"
+    - s4.name_ = "Kolkata"
+ 
+C.3.
+    - s1.GetName() = "Mumbai"
+    - s2.GetName() = "Mumbai"
+    - s3.GetName() = "Chennai"
+    - s4.GetName() = "Kolkata"
+
+c.4.
+    - s1.GetDistance(s3) = 1338
+    - s1.GetDistance(s4) = 2014
+
+C.5.
+    Station: Kolkata
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+D. Unit Test Plan for 'BookingClasses'
+
++++ There are seven concrete classes in BookingClass
+        - ACFirstClass
+        - AC2Tier
+        - FirstClass
+        - AC3Tier
+        - ACChairCar
+        - Sleeper
+        - SecondSitting
+
++++ All of the seven concrete classes are singleton.
+
++++ For each of these classes, the following things need to be tested :
+
+D.1. Testing the Type() function
+    - The Type() function is called to get an object of the respective booking class
+    - The Type() function is called again and check if it is the same as previous object
+      (testing for singleton class)
+
+D.2. Testing the isSitting() function : virtual bool isSitting() const
+    - Gives 1 if the booking class is sitting and 0 if it is sleeping
+    - Tested if sleeping/sitting given is correct
+
+D.3. Testing the isAC() function : bool isAC() const
+    - Gives 1 if the booking class is AC and 0 if it is non-AC
+    - Tested if AC/non-AC given is correct
+
+D.4. Testing the isLuxury() function : bool isLuxury() const
+    - Gives 1 if the booking class is Luxury and 0 if it is Ordinary
+    - Tested if luxury/ordinary given is correct
+
+D.5. Testing the GetNumberOfTiers() function : virtual int GetNumberOfTiers() const
+    - Gives number of tiers in the booking class
+    - Tested if number of tiers given is correct
+
+D.6. Testing the GetName() function : string GetName() const
+    - Gives name of the booking class
+    - Tested if name given is correct
+
+D.7. Testing the GetLoadFactor() function : virtual double GetLoadFactor() const
+    - Gives load factor of the booking class
+    - Tested if load factor given is correct
+
+D.8. Testing the overloaded output stream operator << : friend ostream& operator<<(ostream&, const BookingClass&)
+    - Prints a BookingClass for respective booking class to the screen
+    - Tested if printed output is same as in Golden output log file
+
++++ GOLDEN OUTPUTS
+
++++++ ACFirstClass
+D.1. (&i == &ACFirstClass::Type()) = true
+D.2. ACFirstClass::Type().isSitting() = false
+D.3. ACFirstClass::Type().isAC() = true
+D.4. ACFirstClass::Type().isLuxury() = true
+D.5. ACFirstClass::Type().GetNumberOfTiers() = 2
+D.6. ACFirstClass::Type().GetName() = "AC First Class"
+D.7. ACFirstClass::Type().GetLoadFactor() = 3.0
+D.8. (given in GoldenUnitTestACFirstClass.log)
+
++++++ AC2Tier
+D.1. (&i == &AC2Tier::Type()) = true
+D.2. AC2Tier::Type().isSitting() = false
+D.3. AC2Tier::Type().isAC() = true
+D.4. AC2Tier::Type().isLuxury() = false
+D.5. AC2Tier::Type().GetNumberOfTiers() = 2
+D.6. AC2Tier::Type().GetName() = "AC 2 Tier"
+D.7. AC2Tier::Type().GetLoadFactor() = 2.0
+D.8. (given in GoldenUnitTestAC2Tier.log)
+
++++++ FirstClass
+D.1. (&i == &FirstClass::Type()) = true
+D.2. FirstClass::Type().isSitting() = false
+D.3. FirstClass::Type().isAC() = false
+D.4. FirstClass::Type().isLuxury() = true
+D.5. FirstClass::Type().GetNumberOfTiers() = 2
+D.6. FirstClass::Type().GetName() = "First Class"
+D.7. FirstClass::Type().GetLoadFactor() = 2.0
+D.8. (given in GoldenUnitTestFirstClass.log)
+
++++++ AC3Tier
+D.1. (&i == &AC3Tier::Type()) = true
+D.2. AC3Tier::Type().isSitting() = false
+D.3. AC3Tier::Type().isAC() = true
+D.4. AC3Tier::Type().isLuxury() = false
+D.5. AC3Tier::Type().GetNumberOfTiers() = 3
+D.6. AC3Tier::Type().GetName() = "AC 3 Tier"
+D.7. AC3Tier::Type().GetLoadFactor() = 1.75
+D.8. (given in GoldenUnitTestAC3Tier.log)
+
++++++ ACChairCar
+D.1. (&i == &ACChairCar::Type()) = true
+D.2. ACChairCar::Type().isSitting() = true
+D.3. ACChairCar::Type().isAC() = true
+D.4. ACChairCar::Type().isLuxury() = false
+D.5. ACChairCar::Type().GetNumberOfTiers() = 0
+D.6. ACChairCar::Type().GetName() = "AC Chair Car"
+D.7. ACChairCar::Type().GetLoadFactor() = 1.25
+D.8. (given in GoldenUnitTestACChairCar.log)
+
++++++ Sleeper
+D.1. (&i == &Sleeper::Type()) = true
+D.2. Sleeper::Type().isSitting() = false
+D.3. Sleeper::Type().isAC() = false
+D.4. Sleeper::Type().isLuxury() = false
+D.5. Sleeper::Type().GetNumberOfTiers() = 3
+D.6. Sleeper::Type().GetName() = "Sleeper"
+D.7. Sleeper::Type().GetLoadFactor() = 1.0
+D.8. (given in GoldenUnitTestSleeper.log)
+
++++++ SecondSitting
+D.1. (&i == &SecondSitting::Type()) = true
+D.2. SecondSitting::Type().isSitting() = true
+D.3. SecondSitting::Type().isAC() = false
+D.4. SecondSitting::Type().isLuxury() = false
+D.5. SecondSitting::Type().GetNumberOfTiers() = 0
+D.6. SecondSitting::Type().GetName() = "Second Sitting"
+D.7. SecondSitting::Type().GetLoadFactor() = 0.5
+D.8. (given in GoldenUnitTestSecondSitting.log)
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+E. Unit Test Plan for 'Booking'
+
+E.1. Testing the provided constructor : Booking(const Station &, const Station &, const Date &, const BookingClass &, 
+                                                bool = true, const string& = "BOOKING SUCCEEDED", const Passenger* const p = NULL);
+    - Booking object is created in following scenarios
+        - Passenger is a nullable default
+        - All arguments except passenger are provided
+        - All arguments except passenger and bookingMessage_ are provided
+        - All arguments except passenger, bookingMessage_ and bookingStatus_ are provided
+
+E.2. Testing the ComputeFare() function : virtual int ComputeFare()
+    - Two arbitrary distinct stations are chosen
+    - Tested for booking with ACFirstClass booking class
+    - Tested for booking with AC2Tier booking class
+    - Tested for booking with FirstClass booking class
+    - Tested for booking with AC3Tier booking class
+    - Tested for booking with ACChairCar booking class
+    - Tested for booking with Sleeper booking class
+    - Tested for booking with SecondSitting booking class
+
+E.3. Testing the overloaded output stream operator << : friend ostream &operator<<(ostream&, const Booking &)
+    - Prints a Booking object to the screen
+    - Tested if printed output is same as in Golden output log file
+
++++ GOLDEN OUTPUTS
+
+E.1.
+    - b1.fromStation_.GetName() = "Kolkata", b1.toStation_.GetName() = "Mumbai", b1.bookingClass_.GetName() = "AC First Class"
+      b1.PNR_ = 1, b1.passenger_ = NULL, b1.bookingStatus_ = true, b1.bookingMessage_ = "BOOKING SUCCEEDED", (Date(17, 3, 2021)==(b1.date_)) = true
+    - b2.fromStation_.GetName() = "Kolkata", b2.toStation_.GetName() = "Chennai", b2.bookingClass_.GetName() = "AC Chair Car"
+      b2.PNR_ = 2, b2.passenger_ = NULL, b2.bookingStatus_ = true, b2.bookingMessage_ = "BOOKING SUCCEEDED", (Date(20, 3, 2021)==(b2.date_)) = true
+    - b3.fromStation_.GetName() = "Kolkata", b3.toStation_.GetName() = "Mumbai", b3.bookingClass_.GetName() = "AC First Class"
+      b3.PNR_ = 3, b3.passenger_ = NULL, b3.bookingStatus_ = true, b3.bookingMessage_ = "BOOKING SUCCEEDED", (Date(17, 3, 2021)==(b3.date_)) = true
+    - b4.fromStation_.GetName() = "Kolkata", b4.toStation_.GetName() = "Mumbai", b4.bookingClass_.GetName() = "AC First Class"
+      b4.PNR_ = 4, b4.passenger_ = NULL, b4.bookingStatus_ = true, b4.bookingMessage_ = "BOOKING SUCCEEDED", (Date(17, 3, 2021)==(b4.date_)) = true
+
+E.2.
+    - b5.ComputeFare() = 3839
+    - b6.ComputeFare() = 2064
+    - b7.ComputeFare() = 2518
+    - b8.ComputeFare() = 1812
+    - b9.ComputeFare() = 1309
+    - b10.ComputeFare() = 1007
+    - b11.ComputeFare() = 504
+
+E.3.
+    BOOKING SUCCEEDED
+    PNR Number = 1
+    From Station = Kolkata
+    To Station = Mumbai
+    Travel Date = Wed, 17/Mar/2021
+    Travel Class = AC First Class
+    : Mode: Sleeping
+    : Comfort: AC
+    : Bunks: 2
+    : Luxury: Yes
+    Fare = 3839
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ APPLICATION TESTING +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Application Test Plan
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+In application test plan we make 7 test cases for 7 different classes of seatsn available in the railways. We take 2 random stations 
+in each test case and we book 2 tickets, from station1 to station2 and also from station2 to station1.
+In the process of booking tickets we print all the attributes and match them with their golden truths.
+We print the station information, date, distance between stations etc and compare them with their golden truth values.
+At the end we print all 14 bookings (2 for each test case) along with the fares and compare them with their golden values.
+
+Golden values of fares of all 14 bookings are as given below:
+    Booking Number 1
+    Fare = 2518
+
+    Booking Number 2
+    Fare = 2518
+
+    Booking Number 3
+    Fare = 2725
+
+    Booking Number 4
+    Fare = 2725
+
+    Booking Number 5
+    Fare = 1219
+
+    Booking Number 6
+    Fare = 1219
+
+    Booking Number 7
+    Fare = 1709
+
+    Booking Number 8
+    Fare = 1709
+
+    Booking Number 9
+    Fare = 1931
+
+    Booking Number 10
+    Fare = 1931
+
+    Booking Number 11
+    Fare = 724
+
+    Booking Number 12
+    Fare = 724
+
+    Booking Number 13
+    Fare = 88
+
+    Booking Number 14
+    Fare = 88

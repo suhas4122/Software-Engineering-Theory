@@ -1,0 +1,170 @@
+CS20006 Assignment 3
+Design.txt
+Suhas Jain (19CS30048)
+
+In this document, we state and explain all the design details that we have followed.
+
+We have taken certain precautions and followed certain procedures to improve the quality of our code 
+These measures are as follows:
+For implementaion part:
+1) Blocked Copy Constructor and Copy Assignment Operator : 
+   The copy constructor ExampleClass(const ExampleClass&) and the copy assignment operator ExampleClass& operator=(const ExampleClass&)
+   have been blocked by making them private data members.
+   By making them private, we prevent users from using them outside the class if used does that then it will give a compilation error.
+   The main purpose of blocking them is to ensure that objects of UDTs are passed by reference.
+   Note that the copy assignment operator is blocked for all the classes. 
+   The copy constructor is blocked for all classes except 'Station' and 'Date'.
+
+2) Singleton classes : 
+   At many places, we have made classes to be singleton classes, for these classes, the constructor and destructor are made private.
+   For each of these classes, we have a Type() member function which returns the singleton instance of the respective class.
+
+3) Passing objects and built-in types : 
+   At all places, objects of UDTs are passed by reference as this helps in minimizing memory consumption, as no copy of the object is created.
+   Also, built-in data types like int are always passed by value.
+
+4) Friend ostream operator function : 
+   Each class has the overloaded output streaming operator implemented as a fried function : friend ostream& operator<<(ostream&, const ExampleClass&)
+   The ostream and ExampleClass objects are passed by reference.
+   Using a friend function is the only viable option because if we wanted to keep it in the ostream class,
+   then we would have to change the iostream library, which is not possible.
+   If we wanted to keep it in the ExampleClass class, then the usual semantics of the << operator would get changed.
+   Hence the only option is to use a friend function as this achieves our purpose and also preserves the encapsulation.
+
+For testing part:
+1) Unit Testing Functions : 
+   Each class has a member function like static void UnitTestExampleClass() for unit testing the respective class.
+   It is made static so that we can easily call this member function without having to explicitly create an object of the class.
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Now the details about all the seperate classes and their design aspects are provided below:
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+A. class 'Station'
+-- private data members / member functions / operator functions
+    -- const string name_ : Attribute to store the name of each Station. 
+    -- Station& operator=(const Station&) : Blocked copy assignment operator
+-- public member functions
+    -- Station(const string&) : Constructor which takes a string which is a const reference as argument. 
+        The argument is made const as we will not be changing it.
+       The constructor is public because we need to create objects of the Station class from even outside the class.
+    -- Station(const Station&) : Copy Constructor with usual semantics.
+       The argument has to be passed as reference else we enter an infinite loop where the copy constructor keeps on calling itself.
+       Here we need a copy constructor as it is required in the initializer lists of other classes like Booking etc
+    -- ~Station() : Destructor
+    -- string GetName() const : The method is made const because it does not need to change the attributes of any object.
+    -- int GetDistance(const Station&) const : This method takes a Station object as a const reference as it does not need to change it.
+       It calls the GetDistance method of the Railways class to get the distance between two stations
+    -- friend ostream& operator<<(ostream&, const Station&) : Output streaming operator.
+    -- static void UnitTestStation() : Static function for unit testing.
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+B. class 'Railways' - a singleton class
+-- private data members / member functions / operator functions
+    -- static const vector<Station> sStations : A vector of Station objects that stores the master data, i.e., the list of all Stations.
+       It is made static as it needs to be accessed from the beginning till the end of the program.
+       It is made const because the list of Stations is already given and never changes in the future.
+    -- static const map<pair<string, string>, int> sDistStations : This stores the pairwise distances between all Stations. 
+       It is implemented as a map<pair<string, string>, int>.
+       The key is a pair of strings which is actually the pair of Stations and the value is an int which is the distance between these 2 Stations.
+       Thus, just by knowing the names of the Stations, we can easily retrieve the distance between them.
+       It is also made static as it is required at multiple times during the execution and const because it never changes in the future. 
+       Both sStations and sDistStations are initialized in Railways.cpp at the beginning itself because 
+       these are constants which will stay constant throughout all runs of the application. Hence, it is best to initialize them in the library itself.
+    -- Railways() : Empty Constructor.
+    -- ~Railways() : Destructor.
+    -- Railways(const Railways&) : Blocked copy constructor.
+    -- Railways& operator=(const Railways&) : Blocked copy assignment operator.
+-- public member functions
+    -- static const Railways& Type() : This function implements the Meyer's Singleton and returns the singleton object.
+       It has to be made static because this function itself returns the single instance. 
+       If it is not static, then for the first call to this function we will not have any instance, and we will not be able to call it.
+       Hence it has to be made static.
+    -- int GetDistance(const Station&, const Station&) const : This is a const function as it only returns the distance between two Stations and 
+       does not need to change the state of any object. The arguments as usual are passed a const references. 
+       This function retrieves the distance between Stations from the map sDistStations.
+    -- friend ostream& operator<<(ostream&, const Railways&) : Output streaming operator.
+    -- static void UnitTestRailways() : Static function for unit testing.
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+C. class 'Date'
+-- private data members / member functions / operator functions
+    -- static const vector<string> sMonthNames : A vector of strings to store the names of the 12 months.
+       It is made static as we need it at multiple times and places during the execution. 
+       It is const as it will never change as the names of the 12 months cannot change.
+    -- static const vector<string> sDayNames : A vector of strings to store the names of the 7 days of the week.
+       It is made static as we need it at multiple instances during the execution. 
+       It is const as it will never change as the names of the days of the week cannot change.
+       Both sMonthNames and sDayNames never change in the future and remain constant throughout all runs of the program, 
+       hence they are initialized in the library itself at the beginning of Date.cpp.
+    -- const int date_, const Month month_, const int year_ : These have been made const as they will not change after the object has been created.
+    -- Date& operator=(const Date&) : Blocked copy assignment operator.
+-- public member functions
+    -- Date(int, int, int) : Constructor which takes three integers as arguments (passed by value).
+    -- Date(const Date&) : Copy Constructor with usual semantics. It has been defined as it is needed in the Booking class.
+    -- ~Date() : Destructor.
+    -- Day day() const : This function returns an integer from 0-6 depending on the day of the week with 0 denoting Sunday.
+       It uses the ctime library to perform this task. It is made const as it does not change the state of the Date object.
+    -- friend ostream& operator<<(ostream&, const Date&) : Output Streaming Operator.
+    -- static void UnitTestDate() : Static function for unit testing.
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+D. class 'BookingClasses' and its child classes
+
+First, let us try to understand how we have created the hierarchy for this collection of classes.
+We have created a hierarchy of classes rooted at BookingClasses and made all non-leaf classes abstract.
+The hierarchy structure looks like this : 
+
+1) BookingClasses (abstract) has 2 child classes : Berth (abstract) and Seat (abstract)
+2) Berth (abstract) has 2 child classes : Tiers2 (abstract) and Tiers3 (abstract)
+3) Seat (abstract) has 2 child classes : ACChairCar and SecondSitting
+4) Tiers2 (abstract) has 3 child classes : ACFirstClass, AC2Tier and FirstClass
+5) Tiers3 (abstract) has 2 child classes : AC2Tier and Sleeper
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+E. class 'Passenger'
+For now, the class 'Passenger' is just an abstract class. It has no specific role in this assignment.
+We have made it an abstract base class as in future, it may be the root of a polymorphic hierarchy based on the category of the passenger.
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+F. class 'Booking'
+-- private data members / member functions / operator functions
+    -- const Station fromStation_ : Made const as once the booking is made, the station from which the booking is done will never change.
+    -- const Station toStation_ : Made const as once the booking is made, the station upto which the booking is done will never change.
+       For initializing fromStation_ and toStation_ in the initializer list of the constructor of class Booking, 
+       we needed the copy constructor for the Station class.
+    -- const Date date_ : This is also made const as date of travel will not change once the booking has been done.
+       For initializing this in the initializer list, we needed the copy constructor of the Date class.
+    -- const BookingClasses& bookingClass_ : Made const as the booking class will not change after the booking.
+       It has been made a reference because all booking classes are singleton classes, hence there is only one instance (object) for each of them.
+       Thus, whenever we need to use a booking class object, we will have to use a reference to that single instance.
+    -- const Passenger* passenger_ : To store the passenger details. Made const as the passenger details cannot change after a booking.
+       It is kept as a pointer to the Passenger object because it is made nullable for now.
+    -- bool bookingStatus_ : It is kept as a bool variable as it can either be true (successfull booking) or false (unsuccessfull booking).
+       Although, in this assignment, it will always be true. It is however not made const because in future extensions, it may happen that 
+       due to some vacancy or some other circumstances, the bookingStatus_ changes from false to true.
+       It may also happen that someone cancels their booking, then the status will change from true to false.
+    -- string bookingMessage_ : It is a message like "BOOKING SUCCEEDED". It is not made const as in future extensions, it may happen that
+       due to some event the bookingMessage_ can change from "BOOKING FAILED" to "BOOKING SUCCEEDED" due to some vacancy or something like that.
+    -- int fare_ : The fare computed for the booking using the ComputeFare() method.
+    -- const int PNR_ : Made const as the PNR_ is kind of a unique ID for each booking, and hence will always remain constant for the booking.
+    -- static int sBookingPNRSerial : A static variable to keep track of the next PNR_ to be allocated. 
+       It is made static as we need a single copy of this for all the Booking objects. Hence it cannot be object-specific.
+       It is not made const as its value increases by one every time a new Booking is made
+    -- Booking(const Booking&) : Blocked copy constructor.
+    -- Booking& operator=(const Booking&) : Blocked copy assignment operator.
+-- public data members / member functions
+    -- static const double sBaseFarePerKM, static const int sACSurcharge, static const int sLuxuryTaxPercent : 
+       These constants are required in the program from start to end hence they are made static.
+       They are made const because they are constant for one execution of the program, although may change from time to time during multiple executions.
+       That is why they are initialized in the Application space and can be easily changed from there itself whenever required without touching the library.
+    -- static vector<Booking*> sBookings : This is a vector of pointers to objects of the Booking classes. 
+       This is basically a list of all the Bookings made till now. It is made static as we need a single copy of the list irrespective of the objects.
+       It is however not const as it gets updated whenever a new Booking is made.
+    -- Booking(const Station&, const Station&, const Date&, const BookingClasses&, bool = true, const string& = "BOOKING SUCCEEDED", Passenger* = NULL) :
+       This constructor takes UDTs as arguments as const references. There are 3 default parameters - bookingStatus_, bookingMessage_ and passenger_.
+       They are defaulted because they are fixed for this assignment.
+    -- virtual ~Booking() : The destructor is made virtual as in future, the class Booking may be the root of a polymorphic hierarchy.
+       This may happen when we introduce different classes for different categories of passengers.
+    -- virtual int ComputeFare() : It is made virtual as in future, there may be a polymorphic extension of the Booking class, 
+       and then we may have different fare computation logics for different categories of passengers, and that may lead to overriding the ComputeFare
+       function in the child classes.
+    -- friend ostream& operator<<(ostream&, const Booking&) : Output streaming operator.
+    -- static void UnitTestBooking() : Static function for unit testing.
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+

@@ -1,0 +1,23 @@
+Station name is invalid : Dilli
+Could not create Booking
+
+Station name is invalid : Bombay
+Could not create Booking
+
+Source and destination stations cannot be same
+Could not create Booking
+
+Year 2500 is not in the valid range
+Could not create Booking
+
+Booking on the same day is not allowed
+Could not create Booking
+
+Date Of Booking cannot be beyond 1 year from Date of Reservation
+Could not create Booking
+
+Passenger is not eligible for the booking category : Divyaang - Blind
+Could not create Booking
+
+Passenger is not eligible for the booking category : Senior Citizen
+Could not create Booking

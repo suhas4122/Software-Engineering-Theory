@@ -1,0 +1,297 @@
+
+***TEST CASE 1***
+
+Station : Kolkata
+Station : Mumbai
+Distance = 2014
+Golden Distance = 2014
+Travel Class = First Class
+ : Mode: Sleeping
+ : Comfort: Non-AC
+ : Bunks: 2
+ : Luxury: Yes
+Wed, 10/Mar/2021
+
+
+***TEST CASE 2***
+
+Station : Chennai
+Station : Delhi
+Distance = 2180
+Golden Distance = 2180
+Travel Class = AC First Class
+ : Mode: Sleeping
+ : Comfort: AC
+ : Bunks: 2
+ : Luxury: Yes
+Sun, 11/Apr/2021
+
+
+***TEST CASE 3***
+
+Station : Bangalore
+Station : Kolkata
+Distance = 1871
+Golden Distance = 1871
+Travel Class = AC Chair Car
+ : Mode: Sitting
+ : Comfort: AC
+ : Bunks: 0
+ : Luxury: No
+Mon, 15/Mar/2021
+
+
+***TEST CASE 4***
+
+Station : Kolkata
+Station : Chennai
+Distance = 1659
+Golden Distance = 1659
+Travel Class = AC 2 Tier
+ : Mode: Sleeping
+ : Comfort: AC
+ : Bunks: 2
+ : Luxury: No
+Thu, 15/Sep/2022
+
+
+***TEST CASE 5***
+
+Station : Delhi
+Station : Bangalore
+Distance = 2150
+Golden Distance = 2150
+Travel Class = AC 3 Tier
+ : Mode: Sleeping
+ : Comfort: AC
+ : Bunks: 3
+ : Luxury: No
+Thu, 16/Sep/2021
+
+
+***TEST CASE 6***
+
+Station : Mumbai
+Station : Delhi
+Distance = 1447
+Golden Distance = 1447
+Travel Class = Sleeper
+ : Mode: Sleeping
+ : Comfort: Non-AC
+ : Bunks: 3
+ : Luxury: No
+Sat, 4/Dec/2021
+
+
+***TEST CASE 7***
+
+Station : Chennai
+Station : Bangalore
+Distance = 350
+Golden Distance = 350
+Travel Class = Second Sitting
+ : Mode: Sitting
+ : Comfort: Non-AC
+ : Bunks: 0
+ : Luxury: No
+Wed, 10/Nov/2021
+
+
+***PRINTING ALL BOOKINGS***
+
+Booking Number 1
+BOOKING SUCCEEDED
+PNR Number = 1
+From Station = Kolkata
+To Station = Mumbai
+Travel Date = Wed, 10/Mar/2021
+
+Travel Class = First Class
+ : Mode: Sleeping
+ : Comfort: Non-AC
+ : Bunks: 2
+ : Luxury: Yes
+Fare = 2518
+
+Booking Number 2
+BOOKING SUCCEEDED
+PNR Number = 2
+From Station = Mumbai
+To Station = Kolkata
+Travel Date = Wed, 10/Mar/2021
+
+Travel Class = First Class
+ : Mode: Sleeping
+ : Comfort: Non-AC
+ : Bunks: 2
+ : Luxury: Yes
+Fare = 2518
+
+Booking Number 3
+BOOKING SUCCEEDED
+PNR Number = 3
+From Station = Chennai
+To Station = Delhi
+Travel Date = Wed, 10/Mar/2021
+
+Travel Class = First Class
+ : Mode: Sleeping
+ : Comfort: Non-AC
+ : Bunks: 2
+ : Luxury: Yes
+Fare = 2725
+
+Booking Number 4
+BOOKING SUCCEEDED
+PNR Number = 4
+From Station = Delhi
+To Station = Chennai
+Travel Date = Wed, 10/Mar/2021
+
+Travel Class = First Class
+ : Mode: Sleeping
+ : Comfort: Non-AC
+ : Bunks: 2
+ : Luxury: Yes
+Fare = 2725
+
+Booking Number 5
+BOOKING SUCCEEDED
+PNR Number = 5
+From Station = Bangalore
+To Station = Kolkata
+Travel Date = Mon, 15/Mar/2021
+
+Travel Class = AC Chair Car
+ : Mode: Sitting
+ : Comfort: AC
+ : Bunks: 0
+ : Luxury: No
+Fare = 1219
+
+Booking Number 6
+BOOKING SUCCEEDED
+PNR Number = 6
+From Station = Kolkata
+To Station = Bangalore
+Travel Date = Mon, 15/Mar/2021
+
+Travel Class = AC Chair Car
+ : Mode: Sitting
+ : Comfort: AC
+ : Bunks: 0
+ : Luxury: No
+Fare = 1219
+
+Booking Number 7
+BOOKING SUCCEEDED
+PNR Number = 7
+From Station = Kolkata
+To Station = Chennai
+Travel Date = Thu, 15/Sep/2022
+
+Travel Class = AC 2 Tier
+ : Mode: Sleeping
+ : Comfort: AC
+ : Bunks: 2
+ : Luxury: No
+Fare = 1709
+
+Booking Number 8
+BOOKING SUCCEEDED
+PNR Number = 8
+From Station = Chennai
+To Station = Kolkata
+Travel Date = Thu, 15/Sep/2022
+
+Travel Class = AC 2 Tier
+ : Mode: Sleeping
+ : Comfort: AC
+ : Bunks: 2
+ : Luxury: No
+Fare = 1709
+
+Booking Number 9
+BOOKING SUCCEEDED
+PNR Number = 9
+From Station = Delhi
+To Station = Bangalore
+Travel Date = Thu, 16/Sep/2021
+
+Travel Class = AC 3 Tier
+ : Mode: Sleeping
+ : Comfort: AC
+ : Bunks: 3
+ : Luxury: No
+Fare = 1931
+
+Booking Number 10
+BOOKING SUCCEEDED
+PNR Number = 10
+From Station = Bangalore
+To Station = Delhi
+Travel Date = Thu, 16/Sep/2021
+
+Travel Class = AC 3 Tier
+ : Mode: Sleeping
+ : Comfort: AC
+ : Bunks: 3
+ : Luxury: No
+Fare = 1931
+
+Booking Number 11
+BOOKING SUCCEEDED
+PNR Number = 11
+From Station = Mumbai
+To Station = Delhi
+Travel Date = Sat, 4/Dec/2021
+
+Travel Class = Sleeper
+ : Mode: Sleeping
+ : Comfort: Non-AC
+ : Bunks: 3
+ : Luxury: No
+Fare = 724
+
+Booking Number 12
+BOOKING SUCCEEDED
+PNR Number = 12
+From Station = Delhi
+To Station = Mumbai
+Travel Date = Sat, 4/Dec/2021
+
+Travel Class = Sleeper
+ : Mode: Sleeping
+ : Comfort: Non-AC
+ : Bunks: 3
+ : Luxury: No
+Fare = 724
+
+Booking Number 13
+BOOKING SUCCEEDED
+PNR Number = 13
+From Station = Chennai
+To Station = Bangalore
+Travel Date = Wed, 10/Nov/2021
+
+Travel Class = Second Sitting
+ : Mode: Sitting
+ : Comfort: Non-AC
+ : Bunks: 0
+ : Luxury: No
+Fare = 88
+
+Booking Number 14
+BOOKING SUCCEEDED
+PNR Number = 14
+From Station = Bangalore
+To Station = Chennai
+Travel Date = Wed, 10/Nov/2021
+
+Travel Class = Second Sitting
+ : Mode: Sitting
+ : Comfort: Non-AC
+ : Bunks: 0
+ : Luxury: No
+Fare = 88
+
